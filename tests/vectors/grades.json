@@ -1,0 +1,669 @@
+[
+  {
+    "name": "supported scale ids sorted",
+    "fn": "available_scales",
+    "expected": ["at", "ch", "de", "es", "fr", "it", "us"]
+  },
+  {
+    "name": "swiss scale entry",
+    "fn": "scale",
+    "sys": "ch",
+    "expected": {"id": "ch", "best": 6.0, "worst": 1.0, "pass": 4.0, "step": "0.5", "higher_is_better": true}
+  },
+  {
+    "name": "german scale entry",
+    "fn": "scale",
+    "sys": "de",
+    "expected": {"id": "de", "best": 1.0, "worst": 6.0, "pass": 4.0, "step": "0.1, with 0.3/0.4/0.7 Zwischennoten", "higher_is_better": false}
+  },
+  {
+    "name": "scale lookup is case-insensitive",
+    "fn": "scale",
+    "sys": "AT",
+    "expected": {"id": "at", "best": 1.0, "worst": 5.0, "pass": 4.0, "step": "1", "higher_is_better": false}
+  },
+  {
+    "name": "unknown scale entry is null",
+    "fn": "scale",
+    "sys": "xx",
+    "expected": null
+  },
+  {
+    "name": "known scale is supported",
+    "fn": "is_supported",
+    "sys": "fr",
+    "expected": true
+  },
+  {
+    "name": "unknown scale is unsupported",
+    "fn": "is_supported",
+    "sys": "xx",
+    "expected": false
+  },
+  {
+    "name": "swiss best grade passes",
+    "fn": "is_pass",
+    "sys": "ch",
+    "value": 6.0,
+    "expected": true
+  },
+  {
+    "name": "swiss pass boundary passes",
+    "fn": "is_pass",
+    "sys": "ch",
+    "value": 4.0,
+    "expected": true
+  },
+  {
+    "name": "swiss failing grade does not pass",
+    "fn": "is_pass",
+    "sys": "ch",
+    "value": 3.5,
+    "expected": false
+  },
+  {
+    "name": "german best grade passes",
+    "fn": "is_pass",
+    "sys": "de",
+    "value": 1.0,
+    "expected": true
+  },
+  {
+    "name": "german pass boundary passes",
+    "fn": "is_pass",
+    "sys": "de",
+    "value": 4.0,
+    "expected": true
+  },
+  {
+    "name": "german failing grade does not pass",
+    "fn": "is_pass",
+    "sys": "de",
+    "value": 4.3,
+    "expected": false
+  },
+  {
+    "name": "grade better than best is invalid",
+    "fn": "is_pass",
+    "sys": "de",
+    "value": 0.7,
+    "expected": null
+  },
+  {
+    "name": "unknown system pass check is null",
+    "fn": "is_pass",
+    "sys": "xx",
+    "value": 5.0,
+    "expected": null
+  },
+  {
+    "name": "swiss 6 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 6.0,
+    "expected": 1.0
+  },
+  {
+    "name": "swiss 5.5 converts to german 1.7",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 5.5,
+    "expected": 1.7
+  },
+  {
+    "name": "swiss 5.0 converts to german 2.5",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 5.0,
+    "expected": 2.5
+  },
+  {
+    "name": "swiss 4.5 converts to german 3.2",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 4.5,
+    "expected": 3.2
+  },
+  {
+    "name": "swiss 4.0 converts to german 4.0",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 4.0,
+    "expected": 4.0
+  },
+  {
+    "name": "swiss failing grade has no german equivalent",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 3.5,
+    "expected": null
+  },
+  {
+    "name": "swiss grade above best is invalid",
+    "fn": "to_de",
+    "sys": "ch",
+    "value": 6.5,
+    "expected": null
+  },
+  {
+    "name": "french 20 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "fr",
+    "value": 20.0,
+    "expected": 1.0
+  },
+  {
+    "name": "french 15 converts to german 2.5",
+    "fn": "to_de",
+    "sys": "fr",
+    "value": 15.0,
+    "expected": 2.5
+  },
+  {
+    "name": "french 12 converts to german 3.4",
+    "fn": "to_de",
+    "sys": "fr",
+    "value": 12.0,
+    "expected": 3.4
+  },
+  {
+    "name": "french pass boundary converts to german 4.0",
+    "fn": "to_de",
+    "sys": "fr",
+    "value": 10.0,
+    "expected": 4.0
+  },
+  {
+    "name": "french failing grade has no german equivalent",
+    "fn": "to_de",
+    "sys": "fr",
+    "value": 9.9,
+    "expected": null
+  },
+  {
+    "name": "italian 30 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "it",
+    "value": 30.0,
+    "expected": 1.0
+  },
+  {
+    "name": "italian 27 converts to german 1.7",
+    "fn": "to_de",
+    "sys": "it",
+    "value": 27.0,
+    "expected": 1.7
+  },
+  {
+    "name": "italian 24 converts to german 2.5",
+    "fn": "to_de",
+    "sys": "it",
+    "value": 24.0,
+    "expected": 2.5
+  },
+  {
+    "name": "italian 21 converts to german 3.2",
+    "fn": "to_de",
+    "sys": "it",
+    "value": 21.0,
+    "expected": 3.2
+  },
+  {
+    "name": "italian pass boundary converts to german 4.0",
+    "fn": "to_de",
+    "sys": "it",
+    "value": 18.0,
+    "expected": 4.0
+  },
+  {
+    "name": "spanish 10 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "es",
+    "value": 10.0,
+    "expected": 1.0
+  },
+  {
+    "name": "spanish 9 converts to german 1.6",
+    "fn": "to_de",
+    "sys": "es",
+    "value": 9.0,
+    "expected": 1.6
+  },
+  {
+    "name": "spanish 7.5 converts to german 2.5",
+    "fn": "to_de",
+    "sys": "es",
+    "value": 7.5,
+    "expected": 2.5
+  },
+  {
+    "name": "spanish pass boundary converts to german 4.0",
+    "fn": "to_de",
+    "sys": "es",
+    "value": 5.0,
+    "expected": 4.0
+  },
+  {
+    "name": "us 4.0 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 4.0,
+    "expected": 1.0
+  },
+  {
+    "name": "us 3.0 converts to german 2.0",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 3.0,
+    "expected": 2.0
+  },
+  {
+    "name": "us 2.0 converts to german 3.0",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 2.0,
+    "expected": 3.0
+  },
+  {
+    "name": "us pass boundary converts to german 4.0",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 1.0,
+    "expected": 4.0
+  },
+  {
+    "name": "exact 1.29 truncates to 1.2 instead of rounding to 1.3",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 3.71,
+    "expected": 1.2
+  },
+  {
+    "name": "exact 2.3 survives integer truncation",
+    "fn": "to_de",
+    "sys": "us",
+    "value": 2.7,
+    "expected": 2.3
+  },
+  {
+    "name": "austrian 1 converts to german 1.0",
+    "fn": "to_de",
+    "sys": "at",
+    "value": 1.0,
+    "expected": 1.0
+  },
+  {
+    "name": "austrian 2 converts to german 2.0",
+    "fn": "to_de",
+    "sys": "at",
+    "value": 2.0,
+    "expected": 2.0
+  },
+  {
+    "name": "austrian 4 converts to german 4.0",
+    "fn": "to_de",
+    "sys": "at",
+    "value": 4.0,
+    "expected": 4.0
+  },
+  {
+    "name": "austrian failing grade has no german equivalent",
+    "fn": "to_de",
+    "sys": "at",
+    "value": 5.0,
+    "expected": null
+  },
+  {
+    "name": "german 1.0 converts to itself",
+    "fn": "to_de",
+    "sys": "de",
+    "value": 1.0,
+    "expected": 1.0
+  },
+  {
+    "name": "german grade survives self conversion exactly",
+    "fn": "to_de",
+    "sys": "de",
+    "value": 2.3,
+    "expected": 2.3
+  },
+  {
+    "name": "german 4.0 converts to itself",
+    "fn": "to_de",
+    "sys": "de",
+    "value": 4.0,
+    "expected": 4.0
+  },
+  {
+    "name": "german failing grade has no conversion",
+    "fn": "to_de",
+    "sys": "de",
+    "value": 4.1,
+    "expected": null
+  },
+  {
+    "name": "unknown system conversion is null",
+    "fn": "to_de",
+    "sys": "xx",
+    "value": 5.0,
+    "expected": null
+  },
+  {
+    "name": "german 1.0 inverts to swiss 6.0",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 1.0,
+    "expected": 6.0
+  },
+  {
+    "name": "german 2.5 inverts to swiss 5.0",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 2.5,
+    "expected": 5.0
+  },
+  {
+    "name": "german 1.7 inverts to swiss 5.53",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 1.7,
+    "expected": 5.53
+  },
+  {
+    "name": "german 4.0 inverts to swiss 4.0",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 4.0,
+    "expected": 4.0
+  },
+  {
+    "name": "german 2.5 inverts to french 15.0",
+    "fn": "from_de",
+    "sys": "fr",
+    "value": 2.5,
+    "expected": 15.0
+  },
+  {
+    "name": "german 3.4 inverts to french 12.0",
+    "fn": "from_de",
+    "sys": "fr",
+    "value": 3.4,
+    "expected": 12.0
+  },
+  {
+    "name": "german 1.7 inverts to italian 27.2",
+    "fn": "from_de",
+    "sys": "it",
+    "value": 1.7,
+    "expected": 27.2
+  },
+  {
+    "name": "german 1.6 inverts to spanish 9.0",
+    "fn": "from_de",
+    "sys": "es",
+    "value": 1.6,
+    "expected": 9.0
+  },
+  {
+    "name": "german 2.0 inverts to us 3.0",
+    "fn": "from_de",
+    "sys": "us",
+    "value": 2.0,
+    "expected": 3.0
+  },
+  {
+    "name": "german 2.0 inverts to austrian 2.0",
+    "fn": "from_de",
+    "sys": "at",
+    "value": 2.0,
+    "expected": 2.0
+  },
+  {
+    "name": "german grade below 1.0 is invalid",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 0.9,
+    "expected": null
+  },
+  {
+    "name": "german grade above 4.0 is invalid",
+    "fn": "from_de",
+    "sys": "ch",
+    "value": 4.1,
+    "expected": null
+  },
+  {
+    "name": "unknown system inversion is null",
+    "fn": "from_de",
+    "sys": "xx",
+    "value": 2.0,
+    "expected": null
+  },
+  {
+    "name": "swiss 5.5 converts to french 17.66 via the german pivot",
+    "fn": "convert",
+    "from": "ch",
+    "to": "fr",
+    "value": 5.5,
+    "expected": 17.66
+  },
+  {
+    "name": "french 15 converts to swiss 5.0 via the german pivot",
+    "fn": "convert",
+    "from": "fr",
+    "to": "ch",
+    "value": 15.0,
+    "expected": 5.0
+  },
+  {
+    "name": "same-system conversion pivots and is not the identity",
+    "fn": "convert",
+    "from": "ch",
+    "to": "ch",
+    "value": 5.5,
+    "expected": 5.53
+  },
+  {
+    "name": "conversion with unknown source is null",
+    "fn": "convert",
+    "from": "xx",
+    "to": "de",
+    "value": 5.0,
+    "expected": null
+  },
+  {
+    "name": "conversion with unknown target is null",
+    "fn": "convert",
+    "from": "ch",
+    "to": "xx",
+    "value": 5.5,
+    "expected": null
+  },
+  {
+    "name": "raw formula matches the swiss reference point",
+    "fn": "bavarian_to_de",
+    "nmax": 6.0,
+    "nmin": 4.0,
+    "value": 5.5,
+    "expected": 1.7
+  },
+  {
+    "name": "raw formula on the french pass boundary",
+    "fn": "bavarian_to_de",
+    "nmax": 20.0,
+    "nmin": 10.0,
+    "value": 10.0,
+    "expected": 4.0
+  },
+  {
+    "name": "degenerate raw scale is null",
+    "fn": "bavarian_to_de",
+    "nmax": 4.0,
+    "nmin": 4.0,
+    "value": 4.0,
+    "expected": null
+  },
+  {
+    "name": "raw inverse matches the swiss reference point",
+    "fn": "bavarian_from_de",
+    "nmax": 6.0,
+    "nmin": 4.0,
+    "value": 1.7,
+    "expected": 5.53
+  },
+  {
+    "name": "degenerate raw inverse scale is null",
+    "fn": "bavarian_from_de",
+    "nmax": 4.0,
+    "nmin": 4.0,
+    "value": 2.0,
+    "expected": null
+  },
+  {
+    "name": "parse comma decimal",
+    "fn": "parse_grade",
+    "text": "6,0",
+    "expected": 6.0
+  },
+  {
+    "name": "parse dot decimal",
+    "fn": "parse_grade",
+    "text": "6.0",
+    "expected": 6.0
+  },
+  {
+    "name": "parse integer",
+    "fn": "parse_grade",
+    "text": "6",
+    "expected": 6.0
+  },
+  {
+    "name": "parse padded comma",
+    "fn": "parse_grade",
+    "text": " 5,5 ",
+    "expected": 5.5
+  },
+  {
+    "name": "parse explicit plus",
+    "fn": "parse_grade",
+    "text": "+5.5",
+    "expected": 5.5
+  },
+  {
+    "name": "parse negative",
+    "fn": "parse_grade",
+    "text": "-2",
+    "expected": -2.0
+  },
+  {
+    "name": "parse empty rejects",
+    "fn": "parse_grade",
+    "text": "",
+    "expected": null
+  },
+  {
+    "name": "parse words rejects",
+    "fn": "parse_grade",
+    "text": "abc",
+    "expected": null
+  },
+  {
+    "name": "parse double separator rejects",
+    "fn": "parse_grade",
+    "text": "6.0.0",
+    "expected": null
+  },
+  {
+    "name": "parse mixed separators rejects",
+    "fn": "parse_grade",
+    "text": "1,234.56",
+    "expected": null
+  },
+  {
+    "name": "parse trailing text rejects",
+    "fn": "parse_grade",
+    "text": "6,0!",
+    "expected": null
+  },
+  {
+    "name": "parse nan word rejects",
+    "fn": "parse_grade",
+    "text": "NaN",
+    "expected": null
+  },
+  {
+    "name": "parse inner space rejects",
+    "fn": "parse_grade",
+    "text": "6, 0",
+    "expected": null
+  },
+  {
+    "name": "parse two decimals",
+    "fn": "parse_grade",
+    "text": "1.70",
+    "expected": 1.7
+  },
+  {
+    "name": "format one decimal",
+    "fn": "format_grade",
+    "value": 6.0,
+    "decimals": 1,
+    "expected": "6.0"
+  },
+  {
+    "name": "format half",
+    "fn": "format_grade",
+    "value": 5.5,
+    "decimals": 1,
+    "expected": "5.5"
+  },
+  {
+    "name": "format two decimals kept",
+    "fn": "format_grade",
+    "value": 5.25,
+    "decimals": 2,
+    "expected": "5.25"
+  },
+  {
+    "name": "format rounds half away",
+    "fn": "format_grade",
+    "value": 5.25,
+    "decimals": 1,
+    "expected": "5.3"
+  },
+  {
+    "name": "format rounds down",
+    "fn": "format_grade",
+    "value": 2.34,
+    "decimals": 1,
+    "expected": "2.3"
+  },
+  {
+    "name": "format zero decimals",
+    "fn": "format_grade",
+    "value": 4.0,
+    "decimals": 0,
+    "expected": "4"
+  },
+  {
+    "name": "format zero",
+    "fn": "format_grade",
+    "value": 0.0,
+    "decimals": 1,
+    "expected": "0.0"
+  },
+  {
+    "name": "format negative",
+    "fn": "format_grade",
+    "value": -2.5,
+    "decimals": 1,
+    "expected": "-2.5"
+  },
+  {
+    "name": "format precision over three rejects",
+    "fn": "format_grade",
+    "value": 6.0,
+    "decimals": 4,
+    "expected": null
+  }
+]

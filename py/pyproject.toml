@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cgrade"
+version = "0.1.0"
+description = "School grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion"
+readme = "README.md"
+license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
+license-files = ["LICENSES/*"]
+requires-python = ">=3.10"
+keywords = ["grades", "school", "university"]
+classifiers = ["Programming Language :: Python :: 3", "Operating System :: OS Independent"]
+
+
+[project.urls]
+Homepage = "https://github.com/corbet-foss/cgrade#readme"
+Repository = "https://github.com/corbet-foss/cgrade"
+Issues = "https://github.com/corbet-foss/cgrade/issues"
+
+[project.scripts]
+cgrade = "cgrade.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cgrade"]

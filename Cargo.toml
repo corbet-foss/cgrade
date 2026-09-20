@@ -1,0 +1,28 @@
+[package]
+name = "cgrade"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94"
+description = "School grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion"
+license = "LGPL-3.0-only WITH LGPL-3.0-linking-exception"
+repository = "https://github.com/corbet-foss/cgrade"
+
+documentation = "https://docs.rs/cgrade"
+keywords = ["grades", "school", "university"]
+categories = ["science"]
+
+include = ["Cargo.toml", "Cargo.lock", "src/**", "tables/**", "tests/**", "README.md", "CHANGELOG.md", "LICENSE", "LICENSE.md", "LICENSES/**"]
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+too_many_lines = "allow"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
