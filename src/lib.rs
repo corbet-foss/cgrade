@@ -35,7 +35,8 @@ struct GradesFile {
 }
 
 static GRADES: LazyLock<GradesFile> = LazyLock::new(|| {
-    serde_json::from_str(include_str!("../tables/grades.json")).expect("tables/grades.json is valid")
+    serde_json::from_str(include_str!("../tables/grades.json"))
+        .expect("tables/grades.json is valid")
 });
 
 /// A grading scale with its lowercase ID.
@@ -324,7 +325,11 @@ mod tests {
         }
         assert_eq!(GRADES.supported.len(), GRADES.scales.len());
         for (id, entry) in &GRADES.scales {
-            assert_eq!(id, &id.to_ascii_lowercase(), "scale ID must be lowercase: {id:?}");
+            assert_eq!(
+                id,
+                &id.to_ascii_lowercase(),
+                "scale ID must be lowercase: {id:?}"
+            );
             assert!(entry.best.is_finite() && entry.worst.is_finite() && entry.pass.is_finite());
             #[allow(clippy::float_cmp)]
             {
@@ -335,7 +340,10 @@ mod tests {
                 entry.best > entry.pass,
                 "orientation flag contradicts bounds: {id:?}"
             );
-            assert!(!entry.step.is_empty(), "step hint must not be empty: {id:?}");
+            assert!(
+                !entry.step.is_empty(),
+                "step hint must not be empty: {id:?}"
+            );
             let lower = entry.best.min(entry.worst);
             let upper = entry.best.max(entry.worst);
             assert!(
@@ -425,10 +433,9 @@ mod tests {
             }
             "format_grade" => {
                 let value = number(vector, "value").expect("vector needs value");
-                let decimals = u32::try_from(
-                    vector["decimals"].as_u64().expect("vector needs decimals"),
-                )
-                .expect("decimals fits u32");
+                let decimals =
+                    u32::try_from(vector["decimals"].as_u64().expect("vector needs decimals"))
+                        .expect("decimals fits u32");
                 serde_json::to_value(format_grade(value, decimals)).unwrap()
             }
             "bavarian_to_de" => {
