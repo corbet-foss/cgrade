@@ -96,7 +96,7 @@ only for matching source, dependency closure, tools, configuration and environme
 | `js-pnpm`, `js-yarn`, `js-bun` | Selected additional manager consuming the same verified npm tarball |
 | `python-package` | Wheel/sdist, installed-wheel vectors, metadata and JSON CLI consumers |
 | `typst-package` | Deterministic archive and actual installed Typst import |
-| `typst-preview` | Exact prepared Universe archive and README examples importing `@preview/cgrade:0.1.1` |
+| `typst-preview` | Exact prepared Universe archive and README examples importing `@preview/cgrade:0.1.2` |
 | `rust-dependencies` | Pre-publication source tests using checksum-verified sibling crates in private scratch |
 | `published-npm`, `published-jsr`, `published-python` | Consumers of the exact version on the selected live registry |
 
@@ -125,7 +125,7 @@ registry credentials outside these verification jobs.
 
 For a JSR metadata correction, select `jsr-package` with `ARTIFACT_ROOT`. It copies
 the root README and both license texts, validates only the publication inputs with
-`deno publish --dry-run --allow-dirty`, and exports `cgrade-0.1.1-jsr.tar.gz` with a
+`deno publish --dry-run --allow-dirty`, and exports `cgrade-0.1.2-jsr.tar.gz` with a
 `jsr-package.json` receipt. Upload that exact archive after checking its receipt
 and hash. JSR requires one SPDX identifier, so its metadata declares plain
 LGPL-3.0-only; the linking-exception text ships in-bundle and the js README

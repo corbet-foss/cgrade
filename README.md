@@ -68,7 +68,7 @@ Only passing grades convert: `Nd` outside `[pass .. best]` (in that system's ori
 | Bun | `bun add @corbet-labs/cgrade` |
 | Deno | `deno add npm:@corbet-labs/cgrade` |
 
-The 0.1.1 JavaScript distribution includes compiled ESM, CommonJS,
+The 0.1.2 JavaScript distribution includes compiled ESM, CommonJS,
 TypeScript declarations, and a standalone browser module. Node.js 20+ is
 supported; no TypeScript loader is required.
 
@@ -79,13 +79,13 @@ const { toDe } = require('@corbet-labs/cgrade');
 
 ```html
 <script type="module">
-  import { toDe } from 'https://cdn.jsdelivr.net/npm/@corbet-labs/cgrade@0.1.1/dist/browser.js';
+  import { toDe } from 'https://cdn.jsdelivr.net/npm/@corbet-labs/cgrade@0.1.2/dist/browser.js';
   console.log(toDe('ch', 5.5));
 </script>
 ```
 
 ```typst
-#import "@preview/cgrade:0.1.1": to-de, format-grade, parse-grade
+#import "@preview/cgrade:0.1.2": to-de, format-grade, parse-grade
 
 #to-de("ch", 5.5)
 // 1.7
@@ -168,14 +168,14 @@ for generation, verification, and publication commands.
 
 ## License
 
-Copyright 2026 Julian Y. Richard Corbet. The 0.1.1 release line is licensed
+Copyright 2026 Julian Y. Richard Corbet. The 0.1.2 release line is licensed
 under [LGPL-3.0-only](https://github.com/corbet-foss/cgrade/blob/main/LICENSES/LGPL-3.0-only.txt)
 [WITH LGPL-3.0-linking-exception](https://github.com/corbet-foss/cgrade/blob/main/LICENSES/LGPL-3.0-linking-exception.txt),
 with the incorporated [GPL version 3](https://github.com/corbet-foss/cgrade/blob/main/LICENSES/GPL-3.0-only.txt).
 Combined works may link statically or dynamically without relinking duties;
 library modifications stay LGPL. Applications can use a different license
 subject to the LGPL's conditions.
-This is the first release line; 0.1.1 is published to registries.
+This is the first release line; 0.1.2 is published to registries.
 
 See the [licensing notes](https://github.com/corbet-foss/cgrade/blob/main/LICENSE.md) for distribution conditions and retained notices.
 Contributions are subject to the [Contributor License Agreement](CLA.md).

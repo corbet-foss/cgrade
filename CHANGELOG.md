@@ -3,6 +3,12 @@
 All notable changes to `cgrade` are documented here. The project follows
 Semantic Versioning.
 
+## 0.1.2 - 2026-09-25
+
+- `jsr.json` declares the bare SPDX id `LGPL-3.0-only`; JSR rejected the
+  `WITH` expression. The linking exception still ships in `LICENSES/`.
+- 0.1.1 reached crates.io only; npm, JSR and PyPI go from 0.1.0 to 0.1.2.
+
 ## 0.1.1 - 2026-09-24
 
 - Repository moved to github.com/corbet-foss/cgrade; registry metadata points there.

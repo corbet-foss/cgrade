@@ -2,7 +2,7 @@
 
 Copyright 2026 Julian Y. Richard Corbet.
 
-cgrade 0.1.1 is licensed under **LGPL-3.0-only WITH LGPL-3.0-linking-exception**.
+cgrade 0.1.2 is licensed under **LGPL-3.0-only WITH LGPL-3.0-linking-exception**.
 This covers the library's own Rust, JavaScript, Python and Typst
 implementations, shared tables, tests and documentation. The complete
 [LGPL version 3](LICENSES/LGPL-3.0-only.txt) incorporates
