@@ -3,6 +3,13 @@
 All notable changes to `cgrade` are documented here. The project follows
 Semantic Versioning.
 
+## 0.1.1 - 2026-09-24
+
+- Repository moved to github.com/corbet-foss/cgrade; registry metadata points there.
+- Released from a single tag through CI (crates.io and JSR trusted publishing).
+- Drop the duplicate `LICENSES/LGPL-3.0-only WITH LGPL-3.0-linking-exception.txt`
+  (identical to `LGPL-3.0-linking-exception.txt`); JSR rejects paths with spaces.
+
 ## 0.1.0 - 2026-09-18
 
 - `parse_grade` (dot OR comma input, strict) and `format_grade` (explicit

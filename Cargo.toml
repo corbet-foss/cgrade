@@ -1,6 +1,6 @@
 [package]
 name = "cgrade"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.94"
 description = "School grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion"

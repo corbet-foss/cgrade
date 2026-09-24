@@ -1,8 +1,8 @@
 # Installation and distribution
 
-The main branch ships 0.1.0 under LGPL-3.0-only WITH LGPL-3.0-linking-exception, published to registries.
+The main branch ships 0.1.1 under LGPL-3.0-only WITH LGPL-3.0-linking-exception, published to registries.
 
-This guide describes version 0.1.0. Check the linked registry or release
+This guide describes version 0.1.1. Check the linked registry or release
 for availability; a source manifest alone does not establish publication.
 
 ## JavaScript and Rust
@@ -16,18 +16,18 @@ verify that lower bound.
 ## Python and the command line
 
 The pure Python package requires Python 3.10+ and is published on
-[PyPI](https://pypi.org/project/cgrade/0.1.0/). Install this release with pip
+[PyPI](https://pypi.org/project/cgrade/0.1.1/). Install this release with pip
 or uv in your Python environment:
 
 ```sh
-python -m pip install cgrade==0.1.0
+python -m pip install cgrade==0.1.1
 ```
 
 ```sh
-uv pip install cgrade==0.1.0
+uv pip install cgrade==0.1.1
 ```
 
-For a uv project, `uv add cgrade==0.1.0` adds the package to your dependencies.
+For a uv project, `uv add cgrade==0.1.1` adds the package to your dependencies.
 
 After installation, functions can be called from Python or through either CLI
 entrypoint:
@@ -41,27 +41,27 @@ The CLI takes a function name and a JSON array of positional arguments or an
 object of keyword arguments. Use `-` to read arguments from stdin. It writes
 JSON to stdout; errors use stderr and a nonzero exit status.
 
-For an isolated CLI environment, use `pipx install cgrade==0.1.0` or
-`uv tool install cgrade==0.1.0`.
+For an isolated CLI environment, use `pipx install cgrade==0.1.1` or
+`uv tool install cgrade==0.1.1`.
 
 The wheel contains no native extensions and is platform independent. Release
 evidence records the Python version and operating system actually exercised.
 Verified wheels and source distributions are also attached to the
-[GitHub release](https://github.com/corbet-foss/cgrade/releases/tag/v0.1.0).
+[GitHub release](https://github.com/corbet-foss/cgrade/releases/tag/v0.1.1).
 
 ## JSR
 
 The JSR package is
-[`@corbet-labs/cgrade`](https://jsr.io/@corbet-labs/cgrade@0.1.0):
+[`@corbet-labs/cgrade`](https://jsr.io/@corbet-labs/cgrade@0.1.1):
 
 ```sh
-deno add jsr:@corbet-labs/cgrade@0.1.0
+deno add jsr:@corbet-labs/cgrade@0.1.1
 ```
 
 ## Typst
 
-Download `cgrade-0.1.0-typst.tar.gz` from the matching GitHub release and
-extract its contents into `typst/packages/local/cgrade/0.1.0` under your
+Download `cgrade-0.1.1-typst.tar.gz` from the matching GitHub release and
+extract its contents into `typst/packages/local/cgrade/0.1.1` under your
 [Typst data directory](https://github.com/typst/packages#local-packages):
 
 | System | Data directory |
@@ -71,7 +71,7 @@ extract its contents into `typst/packages/local/cgrade/0.1.0` under your
 | Windows | `%APPDATA%` |
 
 ```typst
-#import "@local/cgrade:0.1.0": *
+#import "@local/cgrade:0.1.1": *
 ```
 
 The archive includes its manifest, tables, source, and licenses. CI compiles

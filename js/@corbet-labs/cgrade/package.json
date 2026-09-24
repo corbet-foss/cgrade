@@ -1,6 +1,6 @@
 {
   "name": "@corbet-labs/cgrade",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deterministic school grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion. Mirrors the cgrade Rust crate release line.",
   "license": "LGPL-3.0-only WITH LGPL-3.0-linking-exception",
   "publishConfig": {
