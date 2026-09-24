@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@corbet-foss/cgrade",
+      "name": "@corbet-labs/cgrade",
       "devDependencies": {
         "@types/node": "25.8.0",
         "typescript": "6.0.3",

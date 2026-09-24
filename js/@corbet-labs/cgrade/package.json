@@ -1,5 +1,5 @@
 {
-  "name": "@corbet-foss/cgrade",
+  "name": "@corbet-labs/cgrade",
   "version": "0.1.0",
   "description": "Deterministic school grades across scales: grading tables plus the modified Bavarian formula for foreign-to-German conversion. Mirrors the cgrade Rust crate release line.",
   "license": "LGPL-3.0-only WITH LGPL-3.0-linking-exception",
@@ -10,7 +10,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/corbet-foss/cgrade.git",
-    "directory": "js/@corbet-foss/cgrade"
+    "directory": "js/@corbet-labs/cgrade"
   },
   "type": "module",
   "main": "./dist/index.cjs",

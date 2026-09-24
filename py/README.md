@@ -2,12 +2,12 @@
 
 **Reproducible school grades across scales.**
 
-[![crates.io](https://img.shields.io/crates/v/cgrade.svg)](https://crates.io/crates/cgrade) [![npm](https://img.shields.io/npm/v/@corbet-foss/cgrade.svg)](https://www.npmjs.com/package/@corbet-foss/cgrade) [![PyPI](https://img.shields.io/pypi/v/cgrade.svg)](https://pypi.org/project/cgrade/) [![Rust API](https://docs.rs/cgrade/badge.svg)](https://docs.rs/cgrade)
+[![crates.io](https://img.shields.io/crates/v/cgrade.svg)](https://crates.io/crates/cgrade) [![npm](https://img.shields.io/npm/v/@corbet-labs/cgrade.svg)](https://www.npmjs.com/package/@corbet-labs/cgrade) [![PyPI](https://img.shields.io/pypi/v/cgrade.svg)](https://pypi.org/project/cgrade/) [![Rust API](https://docs.rs/cgrade/badge.svg)](https://docs.rs/cgrade)
 
 Convert school and university grades between national scales without a network dependency, operating-system locale, or model. The same inputs produce the same numbers in Rust, JavaScript, Python, and Typst.
 
 ```js
-import { toDe } from '@corbet-foss/cgrade';
+import { toDe } from '@corbet-labs/cgrade';
 
 toDe('ch', 5.5);
 // 1.7
@@ -62,11 +62,11 @@ Only passing grades convert: `Nd` outside `[pass .. best]` (in that system's ori
 | Rust / Cargo | `cargo add cgrade` |
 | Python / pip | `python -m pip install cgrade` |
 | Python / uv | `uv add cgrade` |
-| Node.js / npm | `npm install @corbet-foss/cgrade` |
-| pnpm | `pnpm add @corbet-foss/cgrade` |
-| Yarn | `yarn add @corbet-foss/cgrade` |
-| Bun | `bun add @corbet-foss/cgrade` |
-| Deno | `deno add npm:@corbet-foss/cgrade` |
+| Node.js / npm | `npm install @corbet-labs/cgrade` |
+| pnpm | `pnpm add @corbet-labs/cgrade` |
+| Yarn | `yarn add @corbet-labs/cgrade` |
+| Bun | `bun add @corbet-labs/cgrade` |
+| Deno | `deno add npm:@corbet-labs/cgrade` |
 
 The 0.1.0 JavaScript distribution includes compiled ESM, CommonJS,
 TypeScript declarations, and a standalone browser module. Node.js 20+ is
@@ -74,12 +74,12 @@ supported; no TypeScript loader is required.
 
 ```js
 // CommonJS
-const { toDe } = require('@corbet-foss/cgrade');
+const { toDe } = require('@corbet-labs/cgrade');
 ```
 
 ```html
 <script type="module">
-  import { toDe } from 'https://cdn.jsdelivr.net/npm/@corbet-foss/cgrade@0.1.0/dist/browser.js';
+  import { toDe } from 'https://cdn.jsdelivr.net/npm/@corbet-labs/cgrade@0.1.0/dist/browser.js';
   console.log(toDe('ch', 5.5));
 </script>
 ```
